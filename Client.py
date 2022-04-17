@@ -34,7 +34,7 @@ def main():
 			connectedToHosts = True
 			print('Connection established.')
 
-			clientGPU = GPUtil.getGPUs()[0]
+
 
 			while connectedToHosts:
 				# CPU Usage.
@@ -44,6 +44,7 @@ def main():
 				msg += ' ' + str(psutil.virtual_memory().percent)
 
 				# GPU Temp.
+				clientGPU = GPUtil.getGPUs()[0]
 				msg += ' ' + str(clientGPU.temperature)
 
 				########################################
