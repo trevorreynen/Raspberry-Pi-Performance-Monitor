@@ -8,7 +8,6 @@ import socket   # Provides access to BSD socket interface. | https://docs.python
 import GPUtil   # Gets GPU status from Nvidia GPUs. | https://pypi.org/project/GPUtil/
 import psutil   # Gets process and system monitoring information. | https://pypi.org/project/psutil/
 import time     # Provides time related functions. | https://docs.python.org/3/library/time.html
-#import platform # Gets local machine information (e.g. OS). | https://docs.python.org/3/library/platform.html
 
 def main():
 	# Create a socket object for the Client.
