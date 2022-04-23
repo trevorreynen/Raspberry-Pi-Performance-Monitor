@@ -1,8 +1,6 @@
 # Host.py
 # Created by Trevor Reynen, Jason Loesch, Garrett Roach
 
-# cd Documents/GitHub/Raspberry-Pi-Performance-Monitor-Project
-
 # Import Modules
 import socket       							# Provides access to BSD socket interface. | https://docs.python.org/3/library/socket.html
 import collections								# Implements specialized container datatypes. | https://docs.python.org/3/library/collections.html
@@ -94,6 +92,10 @@ def Update(i):
 	axs['ax2'].invert_xaxis()
 	axs['ax2'].set(title='GPU Temp (C)', xlabel='Time', ylim=(0, 100))
 
+	#try to fix stalling
+	msg = "continue"
+	clientSocket.sendall(msg.encode('utf-8'))
+
 
 # Create a socket object for the Host.
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -121,7 +123,7 @@ print('Got a connection from %s' % str(addr))
 
 fig, axs = plt.subplot_mosaic([['ax0', 'ax1', 'ax2']], constrained_layout=True)
 fig.canvas.manager.full_screen_toggle()    # Toggles fullscreen but then you can't easily and safely close window.
-ani = FuncAnimation(fig, Update, frames=8, interval=1024)
+ani = FuncAnimation(fig, Update, frames=8, interval=250)
 plt.show()
 
 

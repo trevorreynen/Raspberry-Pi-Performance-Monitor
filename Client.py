@@ -1,8 +1,6 @@
 # Client.py
 # Created by Trevor Reynen, Jason Loesch, Garrett Roach
 
-# cd Documents/GitHub/Raspberry-Pi-Performance-Monitor-Project
-
 # Import Modules.
 import socket   # Provides access to BSD socket interface. | https://docs.python.org/3/library/socket.html
 import GPUtil   # Gets GPU status from Nvidia GPUs. | https://pypi.org/project/GPUtil/
