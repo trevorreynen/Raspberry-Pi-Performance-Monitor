@@ -32,8 +32,6 @@ def main():
 			connectedToHosts = True
 			print('Connection established.')
 
-
-
 			while connectedToHosts:
 				# CPU Usage.
 				msg = str(psutil.cpu_percent())
