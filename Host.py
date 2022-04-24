@@ -108,6 +108,9 @@ print('Current IP Address of Host:', hostIPAddr)
 # Set port to connect to.
 port = 25565
 
+#set timeout to 10 seconds
+serverSocket.settimeout(10)
+
 # Bind to the port.
 serverSocket.bind((hostIPAddr, port))
 
@@ -123,6 +126,8 @@ print('Got a connection from %s' % str(addr))
 
 fig, axs = plt.subplot_mosaic([['ax0', 'ax1', 'ax2']], constrained_layout=True)
 fig.canvas.manager.full_screen_toggle()    # Toggles fullscreen but then you can't easily and safely close window.
+
+#
 ani = FuncAnimation(fig, Update, frames=8, interval=250)
 plt.show()
 

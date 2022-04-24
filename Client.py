@@ -25,6 +25,8 @@ def main():
 	connectedToHost = False
 	while not connectedToHost:
 		try:
+			#set timeout to 10 seconds
+			clientSocket.settimeout(10)
 			clientSocket.connect((hostIP, port))
 		except socket.exceptions.ConnectionError as err:
 			print('An error has occurred while attempting to connect to Host: %s.' % str(err))
@@ -52,6 +54,7 @@ def main():
 
 				# Send message.
 				clientSocket.sendall(msg.encode('utf-8'))
+				clientSocket.recv(1024)
 
 				# Uncomment below for debugging purposes.
 				#print(msg)
